@@ -9,7 +9,7 @@ class User
   public $email;
   public $username;
   public $password;
-  public $eta = 0;
+  public $eta;
 
   public function setEmail() {
     if ($email == null) {
@@ -17,11 +17,10 @@ class User
     }
   }
 
-  
 
-  public function __construct($username, $password){
-    $this->username = $username;
-    $this->password = $password;
+  public function __construct($_username, $_password){
+    $this->username = $_username;
+    $this->password = $_password;
   }
 }
 
@@ -31,14 +30,14 @@ $user1->lastname = "Boscato";
 $user1->email = "alessandro.boscato@gmail.com";
 
 
-
-
 $user2 = new User("CarloCarlo", 56778);
 $user2->name = "Carlo";
 $user2->lastname = "Petrolio";
 $user2->setEmail();
-var_dump($user1, $user2);
+
+$users = [$user1, $user2];
+
+var_dump($users);
 
 
-// $user1
  ?>
