@@ -16,16 +16,24 @@ class User
       $this->email = "$this->name"."."."$this->lastname"."@gmail.com";
     }
   }
+
+  
+
+  public function __construct($username, $password){
+    $this->username = $username;
+    $this->password = $password;
+  }
 }
 
-$user1 = new User();
+$user1 = new User("Alebsct", 1234);
 $user1->name = "Alessandro";
 $user1->lastname = "Boscato";
+$user1->email = "alessandro.boscato@gmail.com";
 
 
 
 
-$user2 = new User();
+$user2 = new User("CarloCarlo", 56778);
 $user2->name = "Carlo";
 $user2->lastname = "Petrolio";
 $user2->setEmail();
