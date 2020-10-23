@@ -4,18 +4,23 @@
  */
 class User
 {
-  public $name;
-  public $lastname;
-  private $email;
-  private $password;
-  protected $sconto;
+  private $name;
+  private $lastname;
+  protected $email;
+  protected $password;
+  protected $sconto = 0;
 
 //all'accesso l'utente deve obbligatoriamente inserire nome e cognome per la navigazione
-  public function __construct()
+  public function __construct($_name, $_lastname){
+    $this->name = $_name;
+    $this->lastname = $_lastname;
+  }
 
 //se l'utente si iscrive al sito avrà un piccolo sconto sui servizi
   public function setSconto(){
-    if($)
+    if ($email != null && $password != null) {
+      $this->sconto = 20;
+    }
   }
 
 }
@@ -35,9 +40,13 @@ class Employee extends User
 
 }
 
-$user1 = new Employee();
-$user1->name = "Alessandro";
-$user1->lastname = "Boscato";
+$user1 = new User("Alessandro", "Boscato");
+$user2 = new User("Carlo", "Petrolio");
+$user2->email = "carlo.petrolio@gmail.com";
+$user2->password = "1234";
 
+
+var_dump($user1);
+var_dump($user2);
 
  ?>
