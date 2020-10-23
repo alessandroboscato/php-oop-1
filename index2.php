@@ -6,9 +6,9 @@ class User
 {
   private $name;
   private $lastname;
-  protected $email;
-  protected $password;
   protected $sconto = 0;
+
+  use RegisteredUser;
 
 //all'accesso l'utente deve obbligatoriamente inserire nome e cognome per la navigazione
   public function __construct($_name, $_lastname){
@@ -17,14 +17,15 @@ class User
   }
 
 //se l'utente si iscrive al sito avrà un piccolo sconto sui servizi
-  public function setSconto(){
+  public function setSconto($_email, $_password){
     if ($email != null && $password != null) {
+      $this->email = $_email;
+      $this->password = $_password;
       $this->sconto = 20;
     }
   }
 
 }
-
 /**
  *
  */
@@ -34,16 +35,25 @@ class Employee extends User
   public $codiceSconto;
   public $mansion;
 
-  public function setSconto(){
-
-  }
+  // public function setSconto(){
+  //
+  // }
 
 }
+/**
+ *
+ */
+trait RegisteredUser
+{
+  protected $idUser;
+  private $email;
+  private $password;
+}
+
 
 $user1 = new User("Alessandro", "Boscato");
 $user2 = new User("Carlo", "Petrolio");
-$user2->email = "carlo.petrolio@gmail.com";
-$user2->password = "1234";
+$user2->setSconto("carlo.petrolio@gmail.com", "1234");
 
 
 var_dump($user1);
